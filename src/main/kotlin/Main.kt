@@ -17,6 +17,4 @@ fun hasDuplicatesIgnoreSign(numbers: List<Int>): Boolean {
     }
     return false
 }
-
-
 fun sum(firstNumber: Int, secondNumber: Int) = firstNumber + secondNumber
