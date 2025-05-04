@@ -1,4 +1,7 @@
+import com.google.common.truth.Truth.assertThat
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.assertThrows
 import kotlin.test.Test
 
 class MainTest {
@@ -10,13 +13,6 @@ class MainTest {
         assertEquals(3, actual)
     }
 
-
-//    @Test
-//    fun checkPositiveAndNegative() {
-//        val actual = hasDuplicatesIgnoreSign(listOf(1, 2, -2, 3, 4))
-//        assertEquals(true, actual)
-//    }
-
     @Test
     fun `should Return True when List Has The Same NumbersId Different Signs`() {
         //Give
@@ -24,7 +20,10 @@ class MainTest {
         //when
         val result = hasDuplicatesIgnoreSign(input)
         //then
-        assertEquals(true, result)
+//        assertTrue(result)
+//        assertEquals(true, result)
+//        result shouldBe true
+        assertThat(result).isTrue()
     }
 
     @Test
@@ -89,4 +88,23 @@ class MainTest {
         assertEquals(true, result)
     }
 
+    @Test
+    fun `should return null when the number is odd`() {
+        //Given
+        val number = 5
+        //When
+        val result = isEvenOrNull(number)
+        //Then
+        assertThat(result).isNull()
+    }
+
+    @Test
+    fun `should throw Arithmetic exception when the divisor equal zero`() {
+        //Given
+        val dividend = 2
+        val divisor = 0
+        //When & Then
+        assertThrows<ArithmeticException>() { divide(dividend, divisor) }
+
+    }
 }
