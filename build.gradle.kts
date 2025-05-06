@@ -23,6 +23,10 @@ dependencies {
 
     //for parameterized Tests
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
+
+    // mockk kotlin dependency
+    testImplementation("io.mockk:mockk:1.14.2")
+
 }
 
 tasks.test {
