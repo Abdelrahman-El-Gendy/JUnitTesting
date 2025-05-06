@@ -20,6 +20,9 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:5.7.2")
     //Google Truth
     testImplementation("com.google.truth:truth:1.4.2")
+
+    //for parameterized Tests
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
 }
 
 tasks.test {
