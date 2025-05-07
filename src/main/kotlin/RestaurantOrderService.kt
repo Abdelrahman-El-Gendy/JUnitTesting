@@ -2,7 +2,8 @@ import org.koin.core.logger.MESSAGE
 
 class RestaurantOrderService(
     private val logger: Logger,
-    private val database: Database
+    private val database: Database,
+    private val uiMassage: UiMassage
 ) {
     private val orders = mutableListOf<String>()
     fun addOrder(order: String) {
@@ -12,14 +13,11 @@ class RestaurantOrderService(
         }
         val insertOrderResult = database.insertOrder(order)
         when {
-            insertOrderResult.isSuccess -> showMessage("Success")
-            insertOrderResult.isFailure -> showMessage("Fail")
+            insertOrderResult.isSuccess -> uiMassage.showMessage("Success")
+            insertOrderResult.isFailure -> uiMassage.showMessage("Fail")
         }
     }
 
-    fun showMessage(message: String) {
-        print(message)
-    }
 
     fun getOrders(): List<String> = orders.toList()
 
