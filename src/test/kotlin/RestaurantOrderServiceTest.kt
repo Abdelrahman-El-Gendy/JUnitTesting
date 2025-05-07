@@ -1,4 +1,5 @@
 import com.google.common.truth.Truth.assertThat
+import fake.MemoryDatabase
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -7,7 +8,9 @@ import org.junit.jupiter.api.Test
 
 class RestaurantOrderServiceTest {
     lateinit var restaurantOrderService: RestaurantOrderService
-    val database: Database = mockk(relaxed = true)
+
+    //  val database: Database = mockk(relaxed = true)
+    val database: Database = MemoryDatabase()
     val uiMassage: UiMassage = mockk(relaxed = true)
 
     @BeforeEach
